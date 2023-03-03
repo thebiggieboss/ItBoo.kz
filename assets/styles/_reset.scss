@@ -1,0 +1,202 @@
+@import 'variables';
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  font-family: 'Inter', sans-serif;
+  user-select: none;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+img {
+  display: block;
+  -webkit-user-drag: none;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+#__layout {
+  line-height: 1.3;
+  height: 100%;
+  min-height: 100vh;
+  &.body-scroll--no-scroll {
+    overflow: hidden;
+  }
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+h1 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  color: $text;
+}
+h2 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  color: $text;
+}
+h3 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  color: $text-secondary;
+}
+p {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  color: $text-secondary;
+}
+
+//a {
+//  cursor: pointer;
+//  color: $secondary;
+//  font-weight: 600;
+//
+//  &:hover {
+//    text-decoration: none;
+//    color: $link-hover;
+//  }
+//}
+@media screen and (max-width: 768px) {
+  h2 {
+    font-size: 24px;
+  }
+  p {
+    //font-size: 14px;
+  }
+}
+@media screen and (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #FF4242;
+    border-radius: $border-radius-primary;
+  }
+}

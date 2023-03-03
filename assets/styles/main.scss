@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import 'reset', 'fonts', 'forms', 'elements', 'animations';
+@import 'animate.css';
+
+.wrapper {
+  max-width: $page-content;
+  margin: 0 auto;
+  padding: 0 8px;
+}
+.small-des {
+  color: $text-secondary;
+  font-size: 16px;
+}
+.side-text {
+  font-size: 24px;
+  color: $text-secondary;
+}
+.text-secondary {
+  color: $text-secondary;
+}
+.primary {
+  color: $primary;
+}
+.text-default {
+  color: $text;
+}
+button {
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: $border-radius-primary;
+  transition-duration: 0.3s;
+  outline: none;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.3;
+  color: #FFFFFF;
+  &.button__primary {
+    background-color: $primary;
+    color: #fff;
+    &:hover {
+      box-shadow: 0 0 20px $primary;
+    }
+  }
+  &.button__green {
+    background-color: #25D366;
+    color: #FFFFFF;
+    &:hover {
+      box-shadow: 0 0 20px #25D366;
+    }
+    //&:active {
+    //  background-color: $gray-opacity-color;
+    //}
+  }
+  &.button__red {
+    background-color: #FF4242;
+    color: #FFFFFF;
+    &:hover {
+      box-shadow: 0 0 20px #FF4242;
+    }
+  }
+  &.button--loading {
+    transition: all 0.3s ease;
+    position: relative;
+    pointer-events: none;
+    background-color: $primary-hover;
+    text-shadow: 0 0 5px white;
+    color: transparent;
+    &:after {
+      content: '';
+      background-image: url('/icons/loading.svg');
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      transition: all 0.3s ease;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+    }
+  }
+}
