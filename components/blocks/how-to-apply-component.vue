@@ -1,8 +1,8 @@
 <template>
   <div class="how-to-apply-component pb-16 pt-16">
-    <div class="how-to-apply-component__content wrapper">
+    <div class="how-to-apply-component__content wrapper overflow-x-hidden" ref="apply-parent">
       <h2 class="text-white pb-16">Сұраныс қалдыру жолы</h2>
-      <div class="how-to-apply-component__container">
+      <div class="how-to-apply-component__container animate__animated" ref="apply-content">
         <div class="how-to-apply-component__blocks">
           <how-to-apply-card-component v-for="(item, index) in steps" :key="index" :card-data="item"/>
         </div>
@@ -22,6 +22,7 @@
 
 <script>
 import HowToApplyCardComponent from "~/components/cards/how-to-apply-card-component.vue";
+import {observerAnimate} from "~/modules/Observer";
 
 export default {
   name: "how-to-apply-component",
@@ -47,6 +48,9 @@ export default {
         },
       ]
     }
+  },
+  mounted() {
+    observerAnimate(this.$refs["apply-parent"], this.$refs["apply-content"], 'animate__fadeInLeft')
   }
 }
 </script>

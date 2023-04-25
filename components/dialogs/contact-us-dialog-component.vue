@@ -74,6 +74,10 @@ export default {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
+    img {
+      width: 60px;
+      height: 60px;
+    }
   }
 }
 </style>

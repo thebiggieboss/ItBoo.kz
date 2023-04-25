@@ -2,19 +2,22 @@
   <div class="header-component">
     <div class="header-menu overflow-hidden" ref="header-parent">
       <div class="header-menu__container wrapper">
-        <nuxt-link to="/" class="flex"
-          ><h2 class="primary animate__animated" ref="header-text1">It</h2>
+        <nuxt-link to="/" class="flex">
+          <h2 class="primary animate__animated" ref="header-text1">It</h2>
           <h2 class="text-default animate__animated" ref="header-text2">
             Boo.kz
-          </h2></nuxt-link
-        >
+          </h2>
+        </nuxt-link>
         <div class="header-menu__buttons" ref="header-buttons">
           <button @click="scrollTo('about-book')" class="header-menu__button">
-            <h3 class="text-default">Кітап</h3>
+            <h3 class="text-default text-xl">Кітап</h3>
           </button>
           <button class="header-menu__button text--vector" @click="scrollTo('watch-courses')">
-            <h3 class="text-default">Курстар</h3>
+            <h3 class="text-default text-xl">Курстар</h3>
           </button>
+          <nuxt-link to="/esepter-tizimi" class="header-menu__button">
+            <h3 class="text-default text-xl">Есептерді шығару</h3>
+          </nuxt-link>
         </div>
       </div>
     </div>
@@ -47,6 +50,8 @@
               Курстар
             </button>
             <button class="button__primary" @click="dialogMain = true">Сұраныс қалдыру</button>
+            <nuxt-link to="/esepter-tizimi" class="header-menu--navigator__button header-menu--navigator__nuxt-button">Есептерді шығару
+            </nuxt-link>
           </div>
         </div>
         <div class="header-menu--navigator__close-btn" @click="closeMenu"></div>
@@ -113,8 +118,8 @@ export default {
     }
 
     &__buttons {
-      display: flex;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
       gap: 24px;
       align-items: center;
     }
@@ -182,7 +187,7 @@ export default {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 24px;
-      @media screen and (max-width: 500px) {
+      @media screen and (max-width: 560px) {
         grid-template-columns: 1fr;
         //button {
         //  grid-row: 3;
@@ -193,6 +198,9 @@ export default {
       }
     }
     &__button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border: 1px solid #2079ff;
       border-radius: $border-radius-secondary;
       padding: 4px 16px;
@@ -200,21 +208,24 @@ export default {
       cursor: pointer;
       color: black;
       font-weight: 500;
-      font-size: 24px;
+      font-size: 20px;
     }
     //h3 {
     //  font-weight: 500;
     //}
-    button:nth-child(2) {
+    &__nuxt-button {
       grid-row: 2;
       //h3 {
         position: relative;
         &:after {
           content: url("/icons/vector-header.svg");
           position: absolute;
-          top: 6px;
+          top: 12px;
           bottom: 0px;
           right: 16px;
+          @media screen and (max-width: 560px) {
+            top: 6px;
+          }
         }
       //}
     }
