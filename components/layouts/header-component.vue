@@ -102,9 +102,9 @@ export default {
 
 <style scoped lang="scss">
 .header-component {
-  position: relative;
+  position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 1000;
   .header-menu {
     background-color: white;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);

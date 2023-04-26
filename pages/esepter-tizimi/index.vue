@@ -7,7 +7,7 @@
 <script>
 import solveProblemsComponent from "~/components/blocks/solve-problems-component";
 export default {
-  name: "esepter-tizimi",
+  name: "index",
   components: {solveProblemsComponent}
 
 }

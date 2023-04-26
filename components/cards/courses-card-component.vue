@@ -1,6 +1,6 @@
 <template>
   <div class="courses-card-component">
-    <img :src="cardData.icon" alt="">
+    <img :src="cardData.icon" alt="" @click="dialogMain = true">
     <div class="courses-card-component__content">
       <img :src="cardData.subDes.icon" alt="">
       <p class="text-black">{{cardData.subDes.title}}</p>
@@ -10,18 +10,30 @@
       <h3 class="text-black font-semibold	pb-2">{{cardData.title}}</h3>
       <p class="text-black font-normal">{{cardData.des}}</p>
     </div>
+    <full-size-dialog v-if="dialogMain" @close="dialogMain = false">
+      <course-description-dialog :dialog-data="cardData"/>
+    </full-size-dialog>
   </div>
 </template>
 
 <script>
+import FullSizeDialog from "~/components/dialogs/full-size-dialog.vue";
+import CourseDescriptionDialog from "~/components/dialogs/course-description-dialog.vue";
+
 export default {
   name: "courses-card-component",
+  components: {CourseDescriptionDialog, FullSizeDialog},
   props: {
     cardData: {
       type: Object,
       default: () => ({})
     }
-  }
+  },
+  data() {
+    return {
+      dialogMain: false
+    }
+  },
 }
 </script>
 

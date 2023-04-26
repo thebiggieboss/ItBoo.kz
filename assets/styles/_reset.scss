@@ -91,7 +91,6 @@ video {
   font: inherit;
   vertical-align: baseline;
   font-family: 'Inter', sans-serif;
-  user-select: none;
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -107,7 +106,6 @@ nav,
 section,
 img {
   display: block;
-  -webkit-user-drag: none;
 }
 html {
   scroll-behavior: smooth;

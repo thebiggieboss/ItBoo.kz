@@ -33,7 +33,34 @@ export default {
             title: 'Тілдер',
             icon: '/icons/lang-course.svg',
             time: '6h 33 min'
-          }
+          },
+          description: "Python – веб-сайттар мен бағдарламалық қамтамасыз етуді құру, тапсырмаларды автоматтандыру және деректерді талдау үшін жиі қолданылатын компьютерлік бағдарламалау тілі. Python - бұл жалпы мақсаттағы тіл, яғни оны әртүрлі бағдарламаларды жасау үшін пайдалануға болады және қандай да бір нақты мәселелерге арналмаған.",
+          content: {
+            title: "Питонмен не істей аласыз? Кейбір нәрселер мыналарды қамтиды:",
+            list: ["Деректерді талдау және машиналық оқыту", "Веб әзірлеу ", "Автоматтандыру немесе сценарий жазу", "Бағдарламалық қамтамасыз етуді тестілеу және прототиптеу", "Күнделікті тапсырмалар"]
+          },
+          steps: [
+            {
+              title: "1-part Lorem ipsum dolor sit amet consectetur",
+              value: "1h 24 min"
+            },
+            {
+              title: "2-part Lorem ipsum dolor sit amet consectetur",
+              value: "1h 15 min"
+            },
+            {
+              title: "3-part Lorem ipsum dolor sit amet consectetur",
+              value: "1h 33 min"
+            },
+            {
+              title: "4-part Lorem ipsum dolor sit amet consectetur",
+              value: "45 min"
+            },
+            {
+              title: "5-part Lorem ipsum dolor sit amet consectetur",
+              value: "22 min"
+            },
+          ]
         },
         {
           icon: '/images/database.png',
@@ -43,7 +70,26 @@ export default {
             title: 'Деректер',
             icon: '/icons/dev-course.svg',
             time: '3h 19 min'
-          }
+          },
+          description: "SQL – мәліметтер қорынан ақпаратты алуға арналған құрылымдық сұрау тілі. Егер SQL операциясының схемасын қарапайым сөздермен сипаттайтын болсақ, онда маман сұранысты қалыптастырады және оны мәліметтер базасына жібереді. Бұл, өз кезегінде, бұл ақпаратты өңдейді, маманға нақты не қажет екенін «түсінеді» және жауап жібереді.",
+          content: {
+            title: "SQL-ті әртүрлі типтегі мамандар пайдаланады:",
+            list: ["Сарапшылар мен өнім маркетологтары. Мәліметтерді өз бетінше қабылдауға және өңдеуге көмектеседі.", "Әзірлеушілер мен тестерлер. Мәліметтер базасын дербес құрастыра алады, веб-сайттар мен қолданбаларды жақсарта алады.", "Басшылар мен менеджерлер. Мәліметтер базасына өз бетінше қол жеткізуге, бақылауға және істің жай-күйі туралы деректерді алуға мүмкіндік береді."]
+          },
+          steps: [
+            {
+              title: "1-part Lorem ipsum dolor sit amet consectetur",
+              value: "1h 24 min"
+            },
+            {
+              title: "2-part Lorem ipsum dolor sit amet consectetur",
+              value: "1h 15 min"
+            },
+            {
+              title: "3-part Lorem ipsum dolor sit amet consectetur",
+              value: "40 min"
+            },
+          ]
         },
       ],
       listCourses: [

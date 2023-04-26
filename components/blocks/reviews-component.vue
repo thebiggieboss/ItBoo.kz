@@ -70,5 +70,10 @@ export default {
   .reviews-component__content {
     background-color: #E8ECFF;
   }
+  @media screen and (max-width: 768px) {
+    img {
+      width: 160px;
+    }
+  }
 }
 </style>

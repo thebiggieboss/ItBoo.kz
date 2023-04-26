@@ -6,11 +6,11 @@
         <div class="solve-problems-component__block" v-for="(item, index) in problems" :key="index">
           <div class="solve-problems-component__problem">
             <p class="text-xl">{{item.title}}</p>
-            <nuxt-link to="" class="solve-problems-component__mob-button text-xl">
+            <nuxt-link :to="`/esepter-tizimi/${item.id}`" class="solve-problems-component__mob-button text-xl">
               Есепті шығару
             </nuxt-link>
           </div>
-          <nuxt-link to="" class="solve-problems-component__button text-xl">
+          <nuxt-link :to="`/esepter-tizimi/${item.id}`" class="solve-problems-component__button text-xl">
             Есепті шығару
           </nuxt-link>
         </div>
@@ -27,6 +27,7 @@ export default {
     return {
       problems: [
         {
+          id: 1,
           title: "Гипотенуза",
           content: {
             title: "Гипотенуза",

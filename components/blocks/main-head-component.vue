@@ -59,7 +59,17 @@ export default {
   @media screen and (max-width: 768px) {
       grid-template-columns: 1fr;
     .main-head-component__content {
-      padding: 0 8px;
+      padding: 0;
+    }
+    .main-head-component__head-text {
+      h2 {
+        text-align: center;
+        font-size: 32px;
+      }
+      h3 {
+        text-align: center;
+        font-size: 16px;
+      }
     }
   }
 }
