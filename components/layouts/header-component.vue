@@ -134,7 +134,7 @@ export default {
         position: relative;
         padding-right: 24px;
         &:after {
-          content: url("/static/icon/vector-header.svg");
+          content: url("/icon/vector-header.svg");
           position: absolute;
           top: 2px;
           bottom: 2px;
@@ -224,7 +224,7 @@ export default {
       //h3 {
         position: relative;
         &:after {
-          content: url("/static/icon/vector-header.svg");
+          content: url("/icon/vector-header.svg");
           position: absolute;
           top: 8px;
           bottom: 0px;

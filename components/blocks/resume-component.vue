@@ -56,7 +56,7 @@ export default {
       }
     }
     .resume-component__description {
-      background-image: url("/static/icon/yoga-icon-opacity.svg");
+      background-image: url("/icon/yoga-icon-opacity.svg");
       background-repeat: no-repeat;
       background-position: center;
 

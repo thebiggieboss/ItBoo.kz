@@ -113,7 +113,7 @@ export default {
 
 <style scoped lang="scss">
 .watch-courses-component {
-  background-image: url("/static/icon/finance-icon.svg");
+  background-image: url("/icon/finance-icon.svg");
   background-repeat: no-repeat;
   background-position: bottom left;
   .watch-courses-component__content {
@@ -138,7 +138,7 @@ export default {
   @media screen and (max-width: 960px) {
     background-image: none;
     .watch-courses-component__content {
-      background-image: url("/static/icon/finance-icon-reverse.svg");
+      background-image: url("/icon/finance-icon-reverse.svg");
       background-repeat: no-repeat;
       background-position: right 90px;
     }
