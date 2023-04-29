@@ -38,7 +38,7 @@ export default {
           content: 'Кешенді онлайн IT курстары| itBoo\n' +
             'IT дағдыларыңыз бен біліміңізді кеңейткіңіз келе ме? Біздің онлайн IT курстарымыз Python-нан Machine Learning-ке дейін технологияның әртүрлі салаларында кешенді оқытуды ұсынады. Ауқымды курс түрлерінен ең ыңғайлы жолмен оқуды көздеп, таңдау жасаңыз. Қазір тіркеліп, мансабыңызға жетуге бір қадам жақындаңыз!',
         },
-        { hid: 'og-image', property: 'og:image', content: '/Thumbnail.png' },
+        { hid: 'og-image', property: 'og:image', content: '/images/Thumbnail.png' },
       ],
     }
   }
