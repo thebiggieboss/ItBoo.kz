@@ -22,9 +22,9 @@
         placeholder="Пошта"
       />
       <div class="contact-us-dialog__network">
-        <img src="/icons/modal-inst.svg" alt="">
-        <img src="/icons/modal-telaga.svg" alt="">
-        <img src="/icons/modal-whatsapp.svg" alt="">
+        <img src="/icon/modal-inst.svg" alt="">
+        <img src="/icon/modal-telaga.svg" alt="">
+        <img src="/icon/modal-whatsapp.svg" alt="">
       </div>
       <button class="button__primary self-end">
         Сұраныс қалдыру

@@ -9,7 +9,7 @@
         <reviews-card-component :card-data="reviewData"/>
       </client-only>
     </div>
-    <img src="/icons/review-icon.svg" alt="">
+    <img src="/icon/review-icon.svg" alt="">
   </div>
 </template>
 

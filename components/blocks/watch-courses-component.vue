@@ -31,7 +31,7 @@ export default {
           des: 'Lorem ipsum dolor sit amet consectetur. Vulputate quis adipiscing diam dignissim interdum.',
           subDes: {
             title: 'Тілдер',
-            icon: '/icons/lang-course.svg',
+            icon: '/icon/lang-course.svg',
             time: '6h 33 min'
           },
           description: "Python – веб-сайттар мен бағдарламалық қамтамасыз етуді құру, тапсырмаларды автоматтандыру және деректерді талдау үшін жиі қолданылатын компьютерлік бағдарламалау тілі. Python - бұл жалпы мақсаттағы тіл, яғни оны әртүрлі бағдарламаларды жасау үшін пайдалануға болады және қандай да бір нақты мәселелерге арналмаған.",
@@ -68,7 +68,7 @@ export default {
           des: 'Lorem ipsum dolor sit amet consectetur. Vulputate quis adipiscing diam dignissim interdum.',
           subDes: {
             title: 'Деректер',
-            icon: '/icons/dev-course.svg',
+            icon: '/icon/dev-course.svg',
             time: '3h 19 min'
           },
           description: "SQL – мәліметтер қорынан ақпаратты алуға арналған құрылымдық сұрау тілі. Егер SQL операциясының схемасын қарапайым сөздермен сипаттайтын болсақ, онда маман сұранысты қалыптастырады және оны мәліметтер базасына жібереді. Бұл, өз кезегінде, бұл ақпаратты өңдейді, маманға нақты не қажет екенін «түсінеді» және жауап жібереді.",
@@ -94,15 +94,15 @@ export default {
       ],
       listCourses: [
         {
-          icon: '/icons/all-course.svg',
+          icon: '/icon/all-course.svg',
           title: 'Барлық санаттар'
         },
         {
-          icon: '/icons/lang-course.svg',
+          icon: '/icon/lang-course.svg',
           title: 'Тілдер'
         },
         {
-          icon: '/icons/dev-course.svg',
+          icon: '/icon/dev-course.svg',
           title: 'Деректер'
         },
       ]
@@ -113,7 +113,7 @@ export default {
 
 <style scoped lang="scss">
 .watch-courses-component {
-  background-image: url("/icons/finance-icon.svg");
+  background-image: url("/static/icon/finance-icon.svg");
   background-repeat: no-repeat;
   background-position: bottom left;
   .watch-courses-component__content {
@@ -138,7 +138,7 @@ export default {
   @media screen and (max-width: 960px) {
     background-image: none;
     .watch-courses-component__content {
-      background-image: url("/icons/finance-icon-reverse.svg");
+      background-image: url("/static/icon/finance-icon-reverse.svg");
       background-repeat: no-repeat;
       background-position: right 90px;
     }

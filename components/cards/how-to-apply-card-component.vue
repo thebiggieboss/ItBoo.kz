@@ -5,7 +5,7 @@
         <p class="text-center text-white">{{cardData.title}}</p>
         <img :src="cardData.icon" alt="" class="max-w-[100px]">
       </div>
-      <img src="/icons/next-step.svg" alt="" class="how-to-apply-card-component__img">
+      <img src="/icon/next-step.svg" alt="" class="how-to-apply-card-component__img">
     </div>
   </div>
 </template>

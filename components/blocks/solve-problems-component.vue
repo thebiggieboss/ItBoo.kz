@@ -15,7 +15,7 @@
           </nuxt-link>
         </div>
       </div>
-      <img src="/icons/solve-problems-icon.svg" alt="" class="solve-problems-component__img">
+      <img src="/icon/solve-problems-icon.svg" alt="" class="solve-problems-component__img">
     </div>
   </div>
 </template>

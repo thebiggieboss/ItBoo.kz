@@ -32,19 +32,19 @@ export default {
       steps: [
         {
           title: 'Біздің контактімізге жазу',
-          icon: '/icons/step1-icon.svg'
+          icon: '/icon/step1-icon.svg'
         },
         {
           title: 'Менеджермен кеңесу, сатып алынатын өнімнің мәліметтерін дауыстау',
-          icon: '/icons/step2-icon.svg'
+          icon: '/icon/step2-icon.svg'
         },
         {
           title: 'Ұсынылған әдіс бойынша төлеу',
-          icon: '/icons/step3-icon.svg'
+          icon: '/icon/step3-icon.svg'
         },
         {
           title: 'Үйренуді бастау',
-          icon: '/icons/step4-icon.svg'
+          icon: '/icon/step4-icon.svg'
         },
       ]
     }

@@ -33,10 +33,10 @@
         @click="menuActive = !menuActive"
         class="header-mobile__buttons"
       >
-        <img class="header-icon" src="/icons/burger-dark.svg" alt="" />
+        <img class="header-icon" src="/icon/burger-dark.svg" alt="" />
       </button>
       <button v-else @click="menuActive = false" class="header-mobile__buttons">
-        <img src="/icons/close.svg" alt="close" />
+        <img src="/icon/close.svg" alt="close" />
       </button>
     </div>
     <Transition name="fade">
@@ -134,7 +134,7 @@ export default {
         position: relative;
         padding-right: 24px;
         &:after {
-          content: url("/icons/vector-header.svg");
+          content: url("/static/icon/vector-header.svg");
           position: absolute;
           top: 2px;
           bottom: 2px;
@@ -224,7 +224,7 @@ export default {
       //h3 {
         position: relative;
         &:after {
-          content: url("/icons/vector-header.svg");
+          content: url("/static/icon/vector-header.svg");
           position: absolute;
           top: 8px;
           bottom: 0px;

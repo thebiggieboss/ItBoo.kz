@@ -4,7 +4,7 @@
       <div class="dialog-component__section">
 
         <div class="dialog-component__content">
-          <button @click="$emit('close')" class="dialog-component__close-button"><img src="/icons/close.svg" alt=""></button>
+          <button @click="$emit('close')" class="dialog-component__close-button"><img src="/icon/close.svg" alt=""></button>
           <slot />
         </div>
       </div>

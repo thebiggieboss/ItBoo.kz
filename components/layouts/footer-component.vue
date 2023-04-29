@@ -7,9 +7,9 @@
         <h3 class="text-white font-normal cursor-pointer">Контактілер</h3>
       </div>
       <div class="footer-component__content--icons">
-        <img src="/icons/instagram-icon.svg" alt="">
-        <img src="/icons/telegram-icon.svg" alt="">
-        <img src="/icons/youtube-icon.svg" alt="">
+        <img src="/icon/instagram-icon.svg" alt="">
+        <img src="/icon/telegram-icon.svg" alt="">
+        <img src="/icon/youtube-icon.svg" alt="">
       </div>
       <div class="grid gap-4">
         <h2 class="text-white font-normal">Контактілер</h2>
@@ -39,9 +39,9 @@
         </div>
       </div>
       <div class="footer-component__content--icons">
-        <img src="/icons/instagram-icon.svg" alt="">
-        <img src="/icons/telegram-icon.svg" alt="">
-        <img src="/icons/youtube-icon.svg" alt="">
+        <img src="/icon/instagram-icon.svg" alt="">
+        <img src="/icon/telegram-icon.svg" alt="">
+        <img src="/icon/youtube-icon.svg" alt="">
       </div>
       <div class="flex gap-2 flex-col justify-self-end">
         <p>© 2023 «itBoo.kz»</p>

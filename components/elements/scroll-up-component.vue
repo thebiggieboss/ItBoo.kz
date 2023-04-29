@@ -1,7 +1,7 @@
 <template>
   <div class="scroll-up-component">
     <div class="scroll-up-component__content" @click="scrollTop">
-      <img src="/icons/scroll-up.svg" alt="">
+      <img src="/icon/scroll-up.svg" alt="">
     </div>
   </div>
 </template>

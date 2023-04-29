@@ -11,7 +11,7 @@
           </div>
         </div>
         <div class="resume-component__description">
-          <img src="/icons/yoga-icon.svg" alt="" class="justify-self-center">
+          <img src="/icon/yoga-icon.svg" alt="" class="justify-self-center">
           <p class="text-black font-normal">Машинаны үйрету саласында 2012 жылдан бері жұмыс істеп келе жатыр. 2020 жылы Малазиялық Multimedia University университетінде машинаны үйрету саласы бойынша ғылым докторы атанған. 2018 жылдан бері Suleiman Demirel University университетінде машинаны үйрету және компьютерлік көру курстары бойынша аға оқытушы болып қызмет атқарады. Сонымен қатар Оңтүстік Шығыс Азиядағы SOCAR, AirAsia, 123rf, Bolttech сияқты компанияларда "аға машинаны үйрету" инженері болып жұмыс істеген. Қазір Сингапурлық Bolttech компаниясында "аға машинаны үйрету" инженері болып жұмыс атқарады. Қазіргі таңда Мағжан Қайранбай жасаған машинаны үйрету жобалары Оңтүстік Шығыс Азия және Еуропа нарығында кеңінен қолданылады.</p>
         </div>
       </div>
@@ -56,7 +56,7 @@ export default {
       }
     }
     .resume-component__description {
-      background-image: url("/icons/yoga-icon-opacity.svg");
+      background-image: url("/static/icon/yoga-icon-opacity.svg");
       background-repeat: no-repeat;
       background-position: center;
 
