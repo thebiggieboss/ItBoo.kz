@@ -12,8 +12,8 @@
           <div class="reviews-card-component__head-text">
             <img :src="item.icon" alt="" />
             <div>
-              <h3 class="text-black">{{ item.title }}</h3>
-              <p>{{ item.subDes }}</p>
+              <h3 class="text-black cursor-pointer pb-2" :title="item.title">{{ item.title }}</h3>
+              <p :title="item.subDes" class="cursor-pointer">{{ item.subDes }}</p>
             </div>
           </div>
           <p class="reviews-card-component__des">{{ item.des }}</p>
@@ -40,9 +40,8 @@ export default {
   padding: 32px 0 0 0 ;
   .reviews-card-component__content {
     display: grid;
-    grid-template-rows: 1fr auto;
     gap: 16px;
-
+    padding-bottom: 20px;
     justify-content: center;
   }
   .reviews-card-component__head-text {
@@ -50,13 +49,33 @@ export default {
     grid-template-columns: auto 1fr;
     gap: 12px;
     align-items: center;
+    h3 {
+      font-size: 16px;
+    }
     p {
       color: #8d8d8d;
+      font-size: 12px;
+      max-width: 228px;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    img {
+      width: 80px;
+      height: 80px;
+      border-radius: 100%;
+      object-fit: cover;
     }
   }
   &__des {
     color: #8d8d8d;
     max-width: 320px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
   }
   @media screen and (max-width: 1500px) {
     padding: 32px 8px 0 8px ;

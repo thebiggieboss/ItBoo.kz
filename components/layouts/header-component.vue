@@ -49,9 +49,11 @@
             <button class="header-menu--navigator__button" @click="navigate('watch-courses')">
               Курстар
             </button>
-            <button class="button__primary" @click="dialogMain = true">Сұраныс қалдыру</button>
-            <nuxt-link to="/esepter-tizimi" class="header-menu--navigator__button header-menu--navigator__nuxt-button">Есептерді шығару
-            </nuxt-link>
+            <button class="button__primary flex items-center justify-center h-[36px]" @click="openDialog">Сұраныс қалдыру</button>
+            <div  @click="menuActive = false" class="header-menu--navigator__redirect-button">
+              <nuxt-link to="/esepter-tizimi" class="header-menu--navigator__button header-menu--navigator__nuxt-button">Есептерді шығару
+              </nuxt-link>
+            </div>
           </div>
         </div>
         <div class="header-menu--navigator__close-btn" @click="closeMenu"></div>
@@ -83,6 +85,10 @@ export default {
     },
   },
   methods: {
+    openDialog() {
+      this.menuActive = false;
+      this.dialogMain = true;
+    },
     closeMenu() {
       this.menuActive = false;
     },
@@ -209,18 +215,18 @@ export default {
       color: black;
       font-weight: 500;
       font-size: 20px;
+      height: 36px;
     }
     //h3 {
     //  font-weight: 500;
     //}
     &__nuxt-button {
-      grid-row: 2;
       //h3 {
         position: relative;
         &:after {
           content: url("/icons/vector-header.svg");
           position: absolute;
-          top: 12px;
+          top: 8px;
           bottom: 0px;
           right: 16px;
           @media screen and (max-width: 560px) {
@@ -234,6 +240,11 @@ export default {
     .header-menu,
     .header-menu__container {
       display: none;
+    }
+    .header-menu--navigator {
+      &__redirect-button {
+        grid-row: 3;
+      }
     }
     .header-menu--navigator,
     .header-menu--navigator__close-btn {

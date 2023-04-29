@@ -23,34 +23,16 @@ export default {
     return {
       reviewData: [
         {
-          title: 'Қайрат Мақсатұлы',
-          subDes: 'Студент',
-          des: 'Lorem ipsum dolor sit amet consectetur. Id faucibus quis bibendum egestas donec justo commodo est facilisis. Amet feugiat volutpat ut eget morbi tempus at. Egestas a odio phasellus pretium et facilisi consectetur molestie id. Dolor blandit senectus ornare congue morbi.',
-          icon: '/images/review-1.png'
+          title: 'Бағдат Батырбекұлы Мусин',
+          subDes: 'Мемлекеттік қайраткер, ҚР министрі. fwafwfasfsafsafa',
+          des: "Digital Nomads мүшесі – Мағжан Қайранбай есімді отандасымыз қазақ тілінде «Машинаны үйрету» атты кітабын жарыққа шығарды. Машинаны үйрету/Machine Learning – 20 ғасырда пайда болған ғылым саласы. Оның басты мәні IT саласындағы ілімдерді деректер арқылы компьютерге енгізу және толықтырып отыру. Автордың қазақ тіліндегі оқу құралында машинаны үйретудегі бағдарламалау, инженерлік бағыттағы ақпараттар шоғырланған. Теориялық және практикалық сұрақтар мен жаттығулар берiлген. Бұл оқу құралы машинаны үйрету саласына жаңадан аяқ басқан оқушы, студент немесе осы бағытта жұмыс iстеймiн деген азаматтарға таптырмас дүние. Шыныменде, Ағылшын және орыс тiлдерiнде машинаны үйрету саласы бойынша ақпараттар өте көп болғанымен, қазақ тiлiнде кемде-кем. Мағжанның бұл туындысы – қазақ аудиториясы үшін өте құнды оқулық. Шетелдің алпауыт компаниясында қызмет етіп жүрсе де, еліне қол ұшын созып жатқан Мағжанға өз ризашығымды білдіремін.",
+          icon: 'https://tengrinews.kz/userdata/news/2021/news_427333/thumb_m/photo_350158.jpeg'
         },
         {
-          title: 'Ақнур Жанарова',
-          subDes: 'Студент',
-          des: 'Lorem ipsum dolor sit amet consectetur. Id faucibus quis bibendum egestas donec justo commodo est facilisis. Amet feugiat volutpat ut eget morbi tempus at. Egestas a odio phasellus pretium et facilisi consectetur molestie id. Dolor blandit senectus ornare congue morbi.',
-          icon: '/images/review-2.png'
-        },
-        {
-          title: 'Арлан Тұмаров',
-          subDes: 'Студент',
-          des: 'Lorem ipsum dolor sit amet consectetur. Id faucibus quis bibendum egestas donec justo commodo est facilisis. Amet feugiat volutpat ut eget morbi tempus at. Egestas a odio phasellus pretium et facilisi consectetur molestie id. Dolor blandit senectus ornare congue morbi.',
-          icon: '/images/review-3.png'
-        },
-        {
-          title: 'Арлан Тұмаров',
-          subDes: 'Студент',
-          des: 'Lorem ipsum dolor sit amet consectetur. Id faucibus quis bibendum egestas donec justo commodo est facilisis. Amet feugiat volutpat ut eget morbi tempus at. Egestas a odio phasellus pretium et facilisi consectetur molestie id. Dolor blandit senectus ornare congue morbi.',
-          icon: '/images/review-3.png'
-        },
-        {
-          title: 'Арлан Тұмаров',
-          subDes: 'Студент',
-          des: 'Lorem ipsum dolor sit amet consectetur. Id faucibus quis bibendum egestas donec justo commodo est facilisis. Amet feugiat volutpat ut eget morbi tempus at. Egestas a odio phasellus pretium et facilisi consectetur molestie id. Dolor blandit senectus ornare congue morbi.',
-          icon: '/images/review-3.png'
+          title: 'Dr. Арман Жармағамбетов',
+          subDes: 'Meta AI (FAIR) postdoc ғалымы',
+          des: 'Бұл кітап - қазіргі таңда болып жатқан Жасанды Интеллект саласындағы дағдарыс кезеңінде өте орынды жарық көріп жатқан туынды деп ойлаймын. Бұл саланың (AI) біздің күнделікті өмірімізге, болашағымызға тиетін ықпалы зор екені сөзсіз. Сондақтан елімізге осы кәсіпті игеретін жоғарғы сапалы мамандар ауадай қажет. Кітап заманауи халықаралық стандарттарға сай жазылған және Machine Learning бойынша фундаменталды тақырыптардың бастамаларын қамтиді. Теориялық материалдармен қоса бағдарламау тілдері арқылы шығарылатын практикалық есептер де бар. Жалпы айтқанда, бұл саланы өзіне ашқысы келетін жоғарғы класстағы оқушылардан бастап кез келген жастағы адамға бағытталған тамаша туынды деп ойлаймын.',
+          icon: 'https://arman-z.github.io/files/profile.JPG'
         },
       ],
     }

@@ -22,9 +22,12 @@ export default {
 
 <style scoped lang="scss">
 .scroll-up-component {
-  position: fixed;
-  bottom: 50px;
-  right: 50px;
+  //position: fixed;
+  //bottom: 50px;
+  //right: 50px;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 50px;
   &__content {
     display: flex;
     align-items: center;

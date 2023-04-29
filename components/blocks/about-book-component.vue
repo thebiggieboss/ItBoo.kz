@@ -1,10 +1,11 @@
 <template>
   <div class="about-book-component pb-16 pt-16" id="about-book">
     <div class="about-book-component__content wrapper">
+      <img class="about-book-component__img" src="/images/machine-learn.png" alt="">
       <div class="about-book-component__about">
         <h2 class="text-white">Кітап туралы</h2>
         <h2 class="text-white pb-4">Машинаны үйрету</h2>
-        <p class="text-white pb-12"><img class="about-book-component__img-mobile" src="/images/machine-learn.png" alt="">
+        <p class="text-white pb-12 text-sm"><img class="about-book-component__img-mobile" src="/images/machine-learn.png" alt="">
           Бұл кiтаптың басты мақсаты — машинаны үйрету саласын оқырмандарға таныстыра келіп нөлдiк деңгейден халықаралық дәрежедегi Junior Machine Learning Engineer деңгейiне дейiнгі бiлiм беруді іске асыру. Өз тарапымыздан Junior Machine Learning Engineer деңгейін көздейтін тақырыптарды қарастырып, оларға толықтай түсінік беруге тырыстық. Әр тақырыптағы өз бiлiмдерiңiздi тексеру үшiн тест сұрақтар мен жаттығулар берiп отырдық. Сол сұрақтардың кiтап соңындағы жауабын қарап, өз бiлiмдерiңiздi тексере аласыздар. Сонымен бірге, әр тақырып үшiн Python тiлiнде код жазылып, сол тақырыпты теориялық түрде түсiнiп қана қоймай, сол кодты бiзбен бiрге жазып, практикалық тұрғыдан бiлiмдерiңiздi арттыра алуға қолайлы жағдай жасадық. Кiтаптағы әр бөлiмдi оқып болғаннан кейiн сол тақырыпқа байланысты есептер шығара аласыздар. Автоматтандырылған тексеру жүйесi сiздiң кодыңызды тестiлеу арқылы дұрыс не бұрыс екенiн анықтап бере алады.</p>
         <div class="about-book-component__buttons">
           <button
@@ -17,7 +18,6 @@
           <a href="/doc/short_version.pdf" target="_blank" style="color: #D9D9D9">Кітаптың қысқа нұсқасын оқу</a>
         </div>
       </div>
-      <img class="about-book-component__img" src="/images/machine-learn.png" alt="">
     </div>
     <dialog-main v-if="dialogMain" @close="dialogMain = false">
       <contact-us-dialog-component />
@@ -45,12 +45,12 @@ export default {
   background-color: $primary;
   .about-book-component__content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto 1fr;
     gap: 24px;
   }
   .about-book-component__about {
     display: grid;
-    gap: 12px;
+    gap: 6px;
   }
   &__buttons {
     display: grid;
@@ -80,7 +80,7 @@ export default {
     }
   }
   &__img {
-    justify-self: end;
+    justify-self: start;
   }
   &__img-mobile {
     display: none;
@@ -103,8 +103,9 @@ export default {
     }
     &__img-mobile {
       display: block;
-      float: right;
+      float: left;
       max-width: 200px;
+      margin: 0 16px 8px 0;
     }
   }
 }
