@@ -58,7 +58,7 @@ export default {
     width: 100%;
     max-width: 640px;
     min-height: 360px;
-    max-height: 600px;
+    max-height: 880px;
     height: 100%;
     background-color: white;
     overflow-y: auto;

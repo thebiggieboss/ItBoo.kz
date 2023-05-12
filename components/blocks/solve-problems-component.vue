@@ -3,9 +3,9 @@
     <div class="solve-problems-component__content wrapper">
       <h2 class="text-center pb-8">Есептер тізімі</h2>
       <div class="solve-problems-component__blocks">
-        <div class="solve-problems-component__block" v-for="(item, index) in problems" :key="index">
+        <div class="solve-problems-component__block" v-for="(item, index) in dataProblems" :key="index">
           <div class="solve-problems-component__problem">
-            <p class="text-xl">{{item.title}}</p>
+            <p class="text-xl">{{item.name}} (<span class="text-[#8D8D8D]">{{item.tags}}</span>)</p>
             <nuxt-link :to="`/esepter-tizimi/${item.id}`" class="solve-problems-component__mob-button text-xl">
               Есепті шығару
             </nuxt-link>
@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "solve-problems-component",
   data() {
@@ -35,8 +37,16 @@ export default {
             file: ""
           }
         }
-      ]
+      ],
+      dataProblems: []
     }
+  },
+  async mounted() {
+    await axios.get('/get-problems.php').then(res => {
+      this.dataProblems = res.data
+    }).catch(e => {
+      console.log('error', e)
+    })
   }
 }
 </script>
