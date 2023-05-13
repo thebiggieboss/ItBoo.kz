@@ -7,6 +7,7 @@
 			"status" => "false",
 			"message" => "Email и пароль должны быть заполнены"
 		);
+		header('Content-Type: application/json');
 		echo json_encode($response);
 		exit;
 	}
@@ -23,14 +24,33 @@
 	    die("Connection failed: " . $conn->connect_error);
 	}
 
-	// Проверка данных пользователя
-	// ...
+	$sql = "SELECT * FROM user WHERE email = '" . $email . "' AND password = '" . $password_entered . "'";
+	$result = $conn->query($sql);
 
-	// Если данные правильные
+	if ($result->num_rows > 0) {
+		session_start();
+	    // output data of each row
+	    while($row = $result->fetch_assoc()) {
+	    	$_SESSION['id'] = $row['id'];
+	    	$_SESSION['email'] = $row['email'];
+	    	$_SESSION['fname'] = $row['fname'];
+	    	$_SESSION['lname'] = $row['lname'];
+			$_SESSION['registered_date'] = $row['registered_date'];
+
+			$response = array(
+				"status" => "true",
+				"message" => "Регистрация успешно"
+			);
+			header('Content-Type: application/json');
+			echo json_encode($response);
+			exit;
+	    }
+	}
 	$response = array(
-		"status" => "true",
-		"message" => ""
+		"status" => "false",
+		"message" => "Email или пароль не правильно"
 	);
+	header('Content-Type: application/json');
 	echo json_encode($response);
 
 	$conn->close();

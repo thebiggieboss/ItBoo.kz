@@ -133,7 +133,12 @@ export default {
         password: this.password,
       }
       try {
-        const res = await axios.post('/form-buy-api.php', data)
+        const res = await axios.post('/form-buy-api.php', data, {
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        })
         console.log(res)
       } catch (e) {
         console.log(e)

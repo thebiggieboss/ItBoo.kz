@@ -18,6 +18,7 @@
               placeholder="Email"
               autocomplete="nope"
               required
+              name="email"
             >
             <input
               type="password"
@@ -26,6 +27,7 @@
               placeholder="Құпия сөзіңіз"
               autocomplete="off"
               required
+              name="password"
             >
             <button class="button__primary login-component__button">
               Кіру
@@ -66,6 +68,12 @@ export default {
         console.log('37', e)
       }
     }
+  },
+  mounted() {
+    this.$toast.open({
+      message: 'fsa',
+      type: "success"
+    })
   }
 }
 </script>

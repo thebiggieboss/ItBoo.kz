@@ -1,10 +1,10 @@
 <template>
   <div class="problem-component pb-16 pt-16">
     <div class="problem-component__content wrapper">
-      <h2 class="text-center pb-8">{{content.title}}</h2>
+      <h2 class="text-center pb-8">{{dataProblems.title}}</h2>
       <div class="problem-component__block">
         <p class="problem-component__problem pb-4">Есеп берілгені</p>
-        <p style="color: #000000" class="font-normal">{{content.desc}}</p>
+        <p style="color: #000000" class="font-normal" v-html="dataProblems.description"></p>
         <div class="problem-component__">
 
         </div>
@@ -14,16 +14,21 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "problem-component",
   data() {
     return {
-      content: {
-        title: "Гипотенуза",
-        desc: "Сізге in_1.csv файлының әр жолында тік бұрышты үшбұрыштың а және b екі катеті берілген. Осы берілген катеттер бойынша тік бұрышты үшбұрыштың гипотенузасын табыңыз. а және b сандары 1 мен 100-дің арасындағы сандар. out_1.csv файлының әр жолына гипотенуза ұзындығын жазып шығарыңыз. Гипотенуза ұзындығы ондық нүктеден кейін екі санмен шығарылуы керек.",
-        file: ""
-      }
+      dataProblems: []
     }
+  },
+  async mounted() {
+    await axios.get('/get-problems.php').then(res => {
+      this.dataProblems = res.data.find(item => item.id === this.$route.params.id)
+    }).catch(e => {
+      console.log('error', e)
+    })
   }
 }
 </script>
