@@ -1,57 +1,92 @@
 <?php
+	$data = file_get_contents('php://input');
+	$data = json_decode($data, true);
 
-$fname = $_POST['fname'];
-$lname = $_POST['lname'];
-$email = $_POST['email'];
-$password_entered = $_POST['password'];
-$confirm_password = $_POST['confirm_password'];
+	$fname = $data['fname'];
+	$lname = $data['lname'];
+	$email = $data['email'];
+	$password2 = $data['password'];
+	$confirm_password = $data['confirm_password'];
 
-$servername = "localhost";
-$username = "p-332754_p-332754";
-$password = "Kozhbanbet1!";
-$dbname = "p-332754_itbookz";
+	$servername = "localhost";
+	$username = "p-332754_p-332754";
+	$password = "Kozhbanbet1!";
+	$dbname = "p-332754_itbookz";
 
-$response = array();
+	// Check if password and confirm_password match
+	if ($password2 !== $confirm_password) {
+		$response = array(
+			"status" => false,
+			"message" => "Пароли не совпадают"
+		);
+		header('Content-Type: application/json');
+		echo json_encode($response);
+		exit;
+	}
 
-if ($password_entered !== $confirm_password) {
-    $response["status"] = "false";
-    $response["message"] = "Енгізілген құпия сөздер бірдей болу керек";
-    echo json_encode($response);
-    exit;
-}
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+	if ($conn->connect_error) {
+	  die("Connection failed: " . $conn->connect_error);
+	}
 
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	// Check if email already exists
+	$sql = "SELECT * FROM user WHERE email = '$email'";
+	$result = $conn->query($sql);
 
-    $stmt = $conn->prepare("SELECT * FROM user WHERE email = :email");
-    $stmt->bindParam(':email', $email);
-    $stmt->execute();
+	if ($result->num_rows > 0) {
+		$response = array(
+			"status" => false,
+			"message" => "Email уже зарегистрирован"
+		);
+		header('Content-Type: application/json');
+		echo json_encode($response);
+		exit;
+	}
 
-    if ($stmt->rowCount() > 0) {
-        $response["status"] = "false";
-        $response["message"] = "Бұл email арқылы басқа біреу тіркелген. Басқа email қолданып көріңіз.";
-        echo json_encode($response);
-        exit;
-    }
+	// Insert user data into the database
+	$sql = "INSERT INTO user (fname, lname, email, password, registered_date)
+	VALUES ('$fname', '$lname', '$email', '$password', '" . date("Y.m.d") . "')";
 
-    $stmt = $conn->prepare("INSERT INTO user (fname, lname, email, password, registered_date) VALUES (:fname, :lname, :email, :password, :registered_date)");
-    $stmt->bindParam(':fname', $fname);
-    $stmt->bindParam(':lname', $lname);
-    $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':password', $password_entered);
-    $stmt->bindParam(':registered_date', date("Y.m.d"));
-    $stmt->execute();
+	if ($conn->query($sql) === TRUE) {
+		// Fetch the newly registered user's data
+		$sql = "SELECT * FROM user WHERE email = '$email'";
+		$result = $conn->query($sql);
 
-    $response["status"] = "true";
-    $response["message"] = "";
+		if ($result->num_rows > 0) {
+			session_start();
+			$row = $result->fetch_assoc();
+			$_SESSION['id'] = $row['id'];
+			$_SESSION['email'] = $row['email'];
+			$_SESSION['fname'] = $row['fname'];
+			$_SESSION['lname'] = $row['lname'];
+			$_SESSION['registered_date'] = $row['registered_date'];
 
-    echo json_encode($response);
-    exit;
-} catch (PDOException $e) {
-    $response["status"] = "false";
-    $response["message"] = "Error: " . $e->getMessage();
-    echo json_encode($response);
-    exit;
-}
+			$userData = array(
+				"id" => $row['id'],
+				"email" => $row['email'],
+				"fname" => $row['fname'],
+				"lname" => $row['lname'],
+				"registered_date" => $row['registered_date']
+			);
+
+			$response = array(
+				"status" => true,
+				"message" => "Регистрация прошла успешно",
+				"user" => $userData
+			);
+			header('Content-Type: application/json');
+			echo json_encode($response);
+			exit;
+		}
+	} else {
+		$response = array(
+			"status" => false,
+			"message" => "Ошибка при регистрации"
+		);
+		header('Content-Type: application/json');
+		echo json_encode($response);
+		exit;
+		}
 ?>

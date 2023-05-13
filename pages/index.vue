@@ -17,6 +17,7 @@ import AboutBookComponent from "~/components/blocks/about-book-component.vue";
 import ResumeComponent from "~/components/blocks/resume-component.vue";
 import ReviewsComponent from "~/components/blocks/reviews-component.vue";
 import HowToApplyComponent from "~/components/blocks/how-to-apply-component.vue";
+import axios from "axios";
 
 export default {
   name: 'IndexPage',
@@ -41,6 +42,6 @@ export default {
         { hid: 'og-image', property: 'og:image', content: '/images/Thumbnail.png' },
       ],
     }
-  }
+  },
 }
 </script>

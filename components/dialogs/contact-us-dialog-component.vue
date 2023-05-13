@@ -7,6 +7,7 @@
         type="text"
         placeholder="Аты"
         name="fname"
+        autocomplete="off"
       />
       <input
         required
@@ -14,6 +15,7 @@
         type="text"
         placeholder="Тегі"
         name="lname"
+        autocomplete="off"
       />
       <the-mask
         required
@@ -23,6 +25,7 @@
         pattern="[\+][7]\s[(][0-9]{3}[)]\s[0-9]{3}\s[0-9]{2}\s[0-9]{2}"
         placeholder="Whatsapp телефон нөмірі"
         name="phone"
+        autocomplete="off"
       />
       <input
         required
@@ -30,34 +33,41 @@
         type="text"
         placeholder="Пошта"
         name="email"
-      />
-      <input
-        required
-        v-model="promo"
-        type="text"
-        placeholder="Промо код"
-        name="promo"
+        autocomplete="off"
       />
       <input
         required
         v-model="password"
-        type="text"
+        type="password"
         placeholder="Құпия сөзіңіз"
         name="password"
+        autocomplete="off"
       />
-      <div class="aselect" :data-value="'Курс'" :data-list="listSelects">
-        <div class="selector" @click="visible = !visible">
-          <div class="label">
-            <span>{{ value }}</span>
-          </div>
-          <div class="arrow" :class="{ expanded : visible }"></div>
-          <div :class="{ hidden : !visible, visible }">
-            <ul>
-              <li :class="{ current : item === value }" v-for="item in list" @click="select(item)">{{ item }}</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <input
+        v-model="promo"
+        type="text"
+        placeholder="Промо код"
+        name="promo"
+        autocomplete="off"
+      />
+      <v-select
+        v-model="book"
+        :options="listSelects"
+        :reduce="(books) => books.value"
+        label="title"
+        placeholder="Курс"
+        append-to-body
+        class="vue-select__select"
+      >
+        <template #search="{attributes, events}">
+          <input
+            class="vs__search"
+            :required="!book"
+            v-bind="attributes"
+            v-on="events"
+          />
+        </template>
+      </v-select>
       <div class="contact-us-dialog__network">
         <img src="/icon/modal-inst.svg" alt="">
         <img src="/icon/modal-telaga.svg" alt="">
@@ -72,12 +82,15 @@
 
 <script>
 import {TheMask} from 'vue-the-mask'
+import vSelect from "vue-select";
+import 'vue-select/dist/vue-select.css';
 import axios from "axios";
 
 export default {
   name: "contact-us-dialog-component",
   components: {
-    TheMask
+    TheMask,
+    vSelect
   },
   data() {
     return {
@@ -86,7 +99,7 @@ export default {
       phone: '',
       email: '',
       promo: '',
-      book: 1,
+      book: '',
       password: '',
       listSelects: [
         {
@@ -129,19 +142,24 @@ export default {
         phone: this.phone,
         email: this.email,
         promo: this.promo,
-        book: 1,
+        book: this.book,
         password: this.password,
       }
       try {
-        const res = await axios.post('/form-buy-api.php', data, {
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-        })
+        const res = await axios.post('/form-buy-api.php', data)
         console.log(res)
+        if(res.data.success) {
+          await this.$router.push({ path: '/inform', query: { book: res.data.book, order: res.data.order_no, promo: res.data.promo } });
+          this.$toast.open({
+            message: res.data.message,
+            type: "success"
+          })
+        }
       } catch (e) {
-        console.log(e)
+        this.$toast.open({
+          message: e.message,
+          type: "error"
+        })
       }
     }
   }

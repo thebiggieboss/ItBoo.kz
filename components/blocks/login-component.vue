@@ -57,24 +57,29 @@ export default {
   },
   methods: {
     async submit() {
-      let params = {
-        email: this.email,
-        password: this.password
-      }
       try {
-        const data = await axios.post('/login-api.php', params)
-        console.log('35', data)
+        const res = await axios.post('/login-api.php', {
+          email: this.email,
+          password: this.password
+        })
+        if(res.data.status) {
+          await this.$router.push('/')
+          await this.$store.dispatch('user/setUser', {
+            user: res.data.user,
+          })
+        }
+        this.$toast.open({
+          message: res.data.message,
+          type: res.data.status ? "success" : "warning"
+        })
       } catch (e) {
-        console.log('37', e)
+        this.$toast.open({
+          message: e.message,
+          type: "error"
+        })
       }
     }
   },
-  mounted() {
-    this.$toast.open({
-      message: 'fsa',
-      type: "success"
-    })
-  }
 }
 </script>
 

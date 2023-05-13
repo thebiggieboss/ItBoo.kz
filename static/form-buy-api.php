@@ -1,12 +1,13 @@
 <?php
-var_dump($_POST);
-$fname = $_POST['fname'] ?? '';
-$lname = $_POST['lname'] ?? '';
-$phone = $_POST['phone'] ?? '';
-$email = $_POST['email'] ?? '';
-$password_entered = $_POST['password'] ?? '';
-$promo = $_POST['promo'] ?? '';
-$book = $_POST['book'] ?? '';
+$data = file_get_contents('php://input');
+$data = json_decode($data, true);
+$fname = $data['fname'] ?? '';
+$lname = $data['lname'] ?? '';
+$phone = $data['phone'] ?? '';
+$email = $data['email'] ?? '';
+$password_entered = $data['password'] ?? '';
+$promo = $data['promo'] ?? '';
+$book = $data['book'] ?? '';
 
 $servername = "localhost";
 $username = "p-332754_p-332754";
@@ -49,12 +50,16 @@ if ($conn->query($sql) === TRUE) {
     $response = array(
         "message" => "",
         "success" => true,
-        "email" => $email,
         "order_no" => $order_no,
         "book" => $book
     );
-    echo json_encode($response);
-    exit;
+    if (isset($data['promo']) && $data['promo'] == 'academica') {
+            $response['promo'] = 1;
+        }
+
+        header('Content-Type: application/json');
+        echo json_encode($response);
+        exit;
 } else {
     $response = array(
         "message" => "Ошибка при обработке запроса: " . $conn->error,

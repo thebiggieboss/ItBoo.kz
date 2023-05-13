@@ -80,6 +80,35 @@ export default {
       confirm_password: ""
     }
   },
+  methods: {
+    async submit() {
+      let params = {
+        fname: this.fname,
+        lname: this.lname,
+        email: this.email,
+        password: this.password,
+        confirm_password: this.confirm_password
+      }
+      try {
+        const res = await axios.post('/register-api.php', params)
+        if(res.data.status) {
+          await this.$router.push('/')
+          await this.$store.dispatch('user/setUser', {
+            user: res.data.user,
+          })
+        }
+        this.$toast.open({
+          message: res.data.message,
+          type: res.data.status ? "success" : "warning"
+        })
+      } catch (e) {
+        this.$toast.open({
+          message: e.message,
+          type: "error"
+        })
+      }
+    }
+  }
 }
 </script>
 

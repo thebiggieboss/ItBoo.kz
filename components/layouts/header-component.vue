@@ -18,6 +18,35 @@
           <nuxt-link to="/esepter-tizimi" class="header-menu__button">
             <h3 class="text-default text-xl">Есептерді шығару</h3>
           </nuxt-link>
+          <div class="header-menu__user" :class="headerAccountVisible ? 'header-menu__user--is-active' : ''">
+            <img
+              src="/icon/user-icon.svg"
+              alt=""
+              class="header-menu__user-icon" @click="headerAccountVisible = !headerAccountVisible"
+              :class="Object.keys($store.state.user.user).length ? 'header-menu__user-icon--is-non-active' : ''">
+            <div class="header-menu__user-info">
+              <div class="header-menu__user-info--items">
+                <div v-if="Object.keys($store.state.user.user).length">
+                  <div class="header-menu__user-info--item">
+                    Сәлем {{$store.state.user.user.fname}}
+                  </div>
+                  <hr>
+                  <div @click="logout" class="header-menu__user-info--item">
+                    Выйти
+                  </div>
+                </div>
+                <div v-else>
+                  <div class="header-menu__user-info--item">
+                    <nuxt-link to="/login">
+                      Сайтқа кіру
+                    </nuxt-link>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="header-menu__user-close" @click="headerAccountVisible = false">
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -69,6 +98,7 @@
 import { observerAnimate } from "~/modules/Observer";
 import DialogMain from "~/components/dialogs/index.vue";
 import ContactUsDialogComponent from "~/components/dialogs/contact-us-dialog-component.vue";
+import axios from "axios";
 
 export default {
   name: "header-component",
@@ -76,7 +106,8 @@ export default {
   data() {
     return {
       menuActive: false,
-      dialogMain: false
+      dialogMain: false,
+      headerAccountVisible: false
     };
   },
   watch: {
@@ -95,6 +126,22 @@ export default {
     navigate(e) {
       this.closeMenu()
       this.scrollTo(e)
+    },
+    async logout() {
+      try {
+        const res = await axios.get('/logout-api.php')
+        this.$toast.open({
+          message: res.data.message,
+          type: res.data.status ? "success" : "warning"
+        })
+        this.$router.go(0)
+        this.headerAccountVisible = false
+      } catch (e) {
+        this.$toast.open({
+          message: e.message,
+          type: "error"
+        })
+      }
     }
   },
   mounted() {
@@ -122,14 +169,78 @@ export default {
       align-items: center;
       gap: 24px;
     }
+    &__user {
+      &--is-active {
+        .header-menu__user-info {
+          max-height: max-content;
+          display: block;
+          z-index: 1000;
+        }
+      }
+    }
+    &__user-close {
+      position: absolute;
+      height: 100vh;
+      width: 100%;
+      right: 0;
+    }
+    &__user-info {
+      display: none;
+      max-height: 0;
+      position: absolute;
+      top: 100%;
+      right: 6px;
+      padding-top: 10px;
+      transition-duration: 0.3s;
+      &--items {
+        background-color: rgba(#fff, 0.99);
+        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        &:before {
+          content: "";
+          position: absolute;
+          top: 8px;
+          right: 8px;
+          width: 20px;
+          height: 20px;
+          background-color: #FFFFFF;
+          transform: rotate(45deg);
 
+        }
+      }
+      &--item {
+        display: block;
+        width: 100%;
+        background-color: transparent;
+        font-weight: 500;
+        color: #444;
+        padding: 10px 40px;
+        text-align: center;
+        cursor: pointer;
+        transition-duration: 0.3s;
+        border-radius: 2rem;
+        position: relative;
+        z-index: 1000;
+        &:hover {
+          background-color: rgba(#000, 0.025);
+          color: $primary;
+        }
+      }
+    }
+    &__user-icon {
+      width: 34px;
+      cursor: pointer;
+      &--is-non-active {
+        filter: invert(56%) sepia(78%) saturate(460%) hue-rotate(90deg) brightness(103%) contrast(88%);
+      }
+    }
     &__buttons {
       display: grid;
-      grid-template-columns: 1fr 1fr auto;
+      grid-template-columns: 1fr 1fr auto auto;
       gap: 24px;
       align-items: center;
     }
-    &__button:last-child {
+    &__button:nth-child(3) {
       h3 {
         position: relative;
         padding-right: 24px;

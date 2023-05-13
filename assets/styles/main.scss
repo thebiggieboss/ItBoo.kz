@@ -81,3 +81,38 @@ button {
     }
   }
 }
+.vue-select__select .vs__dropdown-toggle {
+  border: none;
+}
+.vue-select__select .vs__dropdown-toggle .vs__selected-options {
+  width: 0;
+  flex-wrap: nowrap;
+}
+.vue-select__select .vs__selected {
+  display: block;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.vue-select__select {
+  z-index: 1;
+  width: 100%;
+  color: #888;
+  border: 1px solid $primary;
+  border-radius: $border-radius-primary;
+  text-overflow: ellipsis;
+  padding: 0.8rem;
+  transition-duration: 0.3s;
+  background-position: calc(100% - 10px) center;
+  background-color: #ffffff;
+  min-height: 47.25px;
+}
+.vue-select__select .vs__actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+.v-toast__text {
+  color: #FFFFFF;
+}

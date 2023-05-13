@@ -1,10 +1,12 @@
 <?php
-	$email = $_POST['email'];
-	$password_entered = $_POST['password'];
+	$data = file_get_contents('php://input');
+	$data = json_decode($data, true);
+	$email = $data['email'];
+	$password_entered = $data['password'];
 
 	if ($email == "" || $password_entered == "") {
 		$response = array(
-			"status" => "false",
+			"status" => false,
 			"message" => "Email и пароль должны быть заполнены"
 		);
 		header('Content-Type: application/json');
@@ -38,8 +40,15 @@
 			$_SESSION['registered_date'] = $row['registered_date'];
 
 			$response = array(
-				"status" => "true",
-				"message" => "Регистрация успешно"
+				"status" => true,
+				"message" => "Регистрация успешно",
+				"user" => array(
+            "id" => $_SESSION['id'],
+            "email" => $_SESSION['email'],
+            "fname" => $_SESSION['fname'],
+            "lname" => $_SESSION['lname'],
+            "registered_date" => $_SESSION['registered_date']
+        )
 			);
 			header('Content-Type: application/json');
 			echo json_encode($response);
@@ -47,7 +56,7 @@
 	    }
 	}
 	$response = array(
-		"status" => "false",
+		"status" => false,
 		"message" => "Email или пароль не правильно"
 	);
 	header('Content-Type: application/json');
