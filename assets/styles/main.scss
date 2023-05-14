@@ -80,6 +80,13 @@ button {
       left: 0;
     }
   }
+  &.button__black {
+    background-color: #2E2E2E;
+    color: #fff;
+    &:hover {
+      box-shadow: 0 0 20px #2E2E2E;
+    }
+  }
 }
 .vue-select__select .vs__dropdown-toggle {
   border: none;

@@ -35,7 +35,8 @@ export default {
     {
       src: '~/plugins/vueCarousel',
       mode: 'client'
-    }
+    },
+    { src: '~/plugins/visits.js', mode: 'client' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

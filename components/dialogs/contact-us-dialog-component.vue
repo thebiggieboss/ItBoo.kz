@@ -30,7 +30,7 @@
       <input
         required
         v-model="email"
-        type="text"
+        type="email"
         placeholder="Пошта"
         name="email"
         autocomplete="off"
@@ -139,7 +139,7 @@ export default {
       let data = {
         fname: this.fname,
         lname: this.lname,
-        phone: this.phone,
+        phone: `8${this.phone}`,
         email: this.email,
         promo: this.promo,
         book: this.book,

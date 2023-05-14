@@ -5,7 +5,7 @@
 	$fname = $data['fname'];
 	$lname = $data['lname'];
 	$email = $data['email'];
-	$password2 = $data['password'];
+	$password_entered = $data['password'];
 	$confirm_password = $data['confirm_password'];
 
 	$servername = "localhost";
@@ -14,7 +14,7 @@
 	$dbname = "p-332754_itbookz";
 
 	// Check if password and confirm_password match
-	if ($password2 !== $confirm_password) {
+	if ($password_entered !== $confirm_password) {
 		$response = array(
 			"status" => false,
 			"message" => "Пароли не совпадают"
@@ -47,7 +47,7 @@
 
 	// Insert user data into the database
 	$sql = "INSERT INTO user (fname, lname, email, password, registered_date)
-	VALUES ('$fname', '$lname', '$email', '$password', '" . date("Y.m.d") . "')";
+	VALUES ('$fname', '$lname', '$email', '$password_entered', '" . date("Y.m.d") . "')";
 
 	if ($conn->query($sql) === TRUE) {
 		// Fetch the newly registered user's data

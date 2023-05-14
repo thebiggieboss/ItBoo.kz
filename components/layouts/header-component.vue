@@ -32,7 +32,9 @@
                   </div>
                   <hr>
                   <div @click="logout" class="header-menu__user-info--item">
-                    Выйти
+                    <span class="text-[#FF4242]">
+                      Выйти
+                    </span>
                   </div>
                 </div>
                 <div v-else>
@@ -43,8 +45,6 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="header-menu__user-close" @click="headerAccountVisible = false">
             </div>
           </div>
         </div>
@@ -79,9 +79,28 @@
               Курстар
             </button>
             <button class="button__primary flex items-center justify-center h-[36px]" @click="openDialog">Сұраныс қалдыру</button>
-            <div  @click="menuActive = false" class="header-menu--navigator__redirect-button">
+            <div @click="menuActive = false" class="header-menu--navigator__redirect-button">
               <nuxt-link to="/esepter-tizimi" class="header-menu--navigator__button header-menu--navigator__nuxt-button">Есептерді шығару
               </nuxt-link>
+            </div>
+          </div>
+          <hr class="border-black">
+          <div class="header-menu--navigator__user">
+            <div v-if="Object.keys($store.state.user.user).length">
+              <div class="header-menu--navigator__user--info">
+                Сәлем {{$store.state.user.user.fname}}
+              </div>
+              <hr>
+              <div @click="logout" class="header-menu--navigator__user--info">
+                <span class="text-[#FF4242]">
+                  Выйти
+                </span>
+              </div>
+            </div>
+            <div v-else>
+              <div class="header-menu--navigator__user--info">
+                Сайтқа кіру
+              </div>
             </div>
           </div>
         </div>
@@ -142,9 +161,15 @@ export default {
           type: "error"
         })
       }
-    }
-  },
+    },
+    close(e) {
+      if (!this.$el.contains(e.target)) {
+          this.headerAccountVisible = false
+         }
+      }
+    },
   mounted() {
+    document.addEventListener('click', this.close)
     observerAnimate(this.$refs["header-parent"], this.$refs["header-text1"], "animate__bounceInLeft");
     observerAnimate(this.$refs["header-parent"], this.$refs["header-text2"], "animate__bounceInDown");
     observerAnimate(this.$refs["header-mobile-parent"], this.$refs["header-mobile-text1"], "animate__bounceInLeft");
@@ -177,12 +202,6 @@ export default {
           z-index: 1000;
         }
       }
-    }
-    &__user-close {
-      position: absolute;
-      height: 100vh;
-      width: 100%;
-      right: 0;
     }
     &__user-info {
       display: none;
@@ -312,6 +331,25 @@ export default {
       }
       button {
         border-radius: $border-radius-secondary;
+      }
+    }
+    &__user {
+      padding: 10px;
+      &--info {
+        display: block;
+        width: 100%;
+        background-color: transparent;
+        font-weight: 500;
+        color: #444;
+        padding: 10px 0;
+        text-align: center;
+        cursor: pointer;
+        transition-duration: 0.3s;
+        z-index: 1000;
+        &:hover {
+          background-color: rgba(#000, 0.025);
+          color: $primary;
+        }
       }
     }
     &__button {

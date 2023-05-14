@@ -16,16 +16,6 @@ import axios from "axios";
 export default {
   name: "default",
   components: {FooterComponent, HeaderComponent},
-  async created() {
-    try {
-      const res = await axios.get('/get-session-api.php')
-      await this.$store.dispatch('user/setUser', {
-        user: res.data.user,
-      })
-    } catch (e) {
-      console.log(e)
-    }
-  }
 }
 </script>
 

@@ -75,5 +75,9 @@ export default {
       font-weight: 300;
     }
   }
+  @media screen and (max-width: 768px) {
+    height: 740px;
+    background-position: bottom;
+  }
 }
 </style>
