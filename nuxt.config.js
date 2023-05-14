@@ -52,6 +52,7 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
+    '@nuxtjs/google-gtag',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -65,6 +66,27 @@ export default {
     manifest: {
       lang: 'en',
     },
+  },
+  'google-gtag': {
+    id: 'G-KWP7PZWJ4R', // required
+    config: {
+      anonymize_ip: true,
+      send_page_view: false,
+      'debug_mode': true,
+    },
+    debug: true, // enable to track in dev mode
+    disableAutoPageTrack: false, // disable if you don't want to track each page route with router.afterEach(...)
+    // optional you can add more configuration like [AdWords](https://developers.google.com/adwords-remarketing-tag/#configuring_the_global_site_tag_for_multiple_accounts)
+    additionalAccounts: [
+      {
+        id: 'GTM-5W4VCFZ',
+        config: {
+          // anonymize_ip: true,
+          send_page_view: false,
+          'debug_mode': true
+        },
+      }
+    ],
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

@@ -116,9 +116,11 @@
               </div>
             </div>
             <div v-else>
-              <div class="header-menu--navigator__user--info">
-                Сайтқа кіру
-              </div>
+              <nuxt-link to="/login">
+                <div class="header-menu--navigator__user--info">
+                  Сайтқа кіру
+                </div>
+              </nuxt-link>
             </div>
           </div>
         </div>
