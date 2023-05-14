@@ -2,7 +2,7 @@
  <div class="watch-courses-component pb-16 pt-16" id="watch-courses">
    <div class="watch-courses-component__content wrapper">
      <h2 class="text-black pb-4">Біздің курстарымызды шолыңыз</h2>
-     <p class="pb-4 max-w-[540px]">Lorem ipsum dolor sit amet consectetur. Neque dignissim ullamcorper massa augue.</p>
+     <p class="pb-4 max-w-[540px]">Курстарды таңдап, біліміңізді арттырыңыз</p>
      <div class="watch-courses-component__blocks">
        <div class="watch-courses-component__block">
          <div v-for="(item, index) in listCourses" :key="index" class="watch-courses-component__block--sub">
@@ -28,7 +28,7 @@ export default {
         {
           icon: '/images/codewars.png',
           title: 'Python',
-          des: 'Lorem ipsum dolor sit amet consectetur. Vulputate quis adipiscing diam dignissim interdum.',
+          des: 'Python — жоғары дәрежедегі бағдарламаллау тілі. Аз синтаксисті талап етеді. Бәрімізге белгілі Instagram әлеуметтік желісі осы python тілінде жазылған.',
           subDes: {
             title: 'Тілдер',
             icon: '/icon/lang-course.svg',
@@ -65,7 +65,7 @@ export default {
         {
           icon: '/images/database.png',
           title: 'SQL',
-          des: 'Lorem ipsum dolor sit amet consectetur. Vulputate quis adipiscing diam dignissim interdum.',
+          des: 'Реляциялық дерекқорларын(database) құруға, өзгертуге және басқаруға арналған әмбебап компьютер тілі. Оңай әрі түсінікті компьютерлік командалар ыңғайлы жұмысты қамтамасыз етеді.',
           subDes: {
             title: 'Деректер',
             icon: '/icon/dev-course.svg',

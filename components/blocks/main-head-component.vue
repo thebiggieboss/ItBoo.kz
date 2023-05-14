@@ -3,7 +3,7 @@
     <div class="main-head-component__content animate__animated" ref="main-content">
       <div class="main-head-component__head-text px-2">
         <h2 class="text-white pb-6">Технологияны меңгеру</h2>
-        <h3 style="color: #B0B0B0" class="pb-6">Lorem ipsum dolor sit amet consectetur. Orci ut sed tempus enim risus id ac.</h3>
+        <h3 style="color: #B0B0B0" class="pb-6">IT мамандықтары бойынша кең ауқымды бағдарламалау курстарынан таңдау жасаңыз</h3>
         <button class="button__primary" @click="dialogMain = true">Бастау</button>
       </div>
     </div>
