@@ -9,13 +9,22 @@
           </h2>
         </nuxt-link>
         <div class="header-menu__buttons" ref="header-buttons">
-          <button @click="scrollTo('about-book')" class="header-menu__button">
+          <button @click="scrollTo('about-book')" class="header-menu__button" v-if="$route.name === 'index'">
             <h3 class="text-default text-xl">Кітап</h3>
           </button>
-          <button class="header-menu__button text--vector" @click="scrollTo('watch-courses')">
+          <button class="header-menu__button text--vector" @click="scrollTo('watch-courses')" v-if="$route.name === 'index'">
             <h3 class="text-default text-xl">Курстар</h3>
           </button>
-          <nuxt-link to="/esepter-tizimi" class="header-menu__button">
+          <nuxt-link to="/rating" class="header-menu__button" v-if="$route.name === 'esepter-tizimi'">
+            <h3 class="text-default text-xl text-center">Рейтинг</h3>
+          </nuxt-link>
+          <nuxt-link to="/esepter-tizimi" class="header-menu__button" v-if="$route.name === 'rating' || $route.name === 'esepter-tizimi-id'">
+            <h3 class="text-default text-xl text-center">Есептер</h3>
+          </nuxt-link>
+          <nuxt-link to="/" class="header-menu__button header-menu__button--text-svg" v-if="$route.name === 'esepter-tizimi' || $route.name === 'rating' || $route.name === 'esepter-tizimi-id'">
+            <h3 class="text-default text-xl">Басты бет</h3>
+          </nuxt-link>
+          <nuxt-link to="/esepter-tizimi" class="header-menu__button header-menu__button--text-svg" v-if="$route.name === 'index'">
             <h3 class="text-default text-xl">Есептерді шығару</h3>
           </nuxt-link>
           <div class="header-menu__user" :class="headerAccountVisible ? 'header-menu__user--is-active' : ''">
@@ -72,14 +81,23 @@
       <div v-if="menuActive">
         <div class="header-menu--navigator">
           <div class="header-menu--navigator__buttons">
-            <button class="header-menu--navigator__button" @click="navigate('about-book')">
+            <button class="header-menu--navigator__button" @click="navigate('about-book')"  v-if="$route.name === 'index'">
               Кітап
             </button>
-            <button class="header-menu--navigator__button" @click="navigate('watch-courses')">
+            <button class="header-menu--navigator__button" @click="navigate('watch-courses')"  v-if="$route.name === 'index'">
               Курстар
             </button>
+            <div @click="menuActive = false" class="header-menu--navigator__redirect-button" v-if="$route.name === 'esepter-tizimi'">
+              <nuxt-link to="/rating" class="header-menu--navigator__button header-menu--navigator__nuxt-button">Рейтинг
+              </nuxt-link>
+            </div>
+            <nuxt-link to="/"  v-if="$route.name === 'esepter-tizimi' || $route.name === 'rating' || $route.name === 'esepter-tizimi-id'">
+              <button @click="menuActive = false" class="header-menu--navigator__button">
+                Басты бет
+              </button>
+            </nuxt-link>
             <button class="button__primary flex items-center justify-center h-[36px]" @click="openDialog">Сұраныс қалдыру</button>
-            <div @click="menuActive = false" class="header-menu--navigator__redirect-button">
+            <div @click="menuActive = false" class="header-menu--navigator__redirect-button" v-if="$route.name === 'index' || $route.name === 'rating' || $route.name === 'esepter-tizimi-id'">
               <nuxt-link to="/esepter-tizimi" class="header-menu--navigator__button header-menu--navigator__nuxt-button">Есептерді шығару
               </nuxt-link>
             </div>
@@ -259,7 +277,7 @@ export default {
       gap: 24px;
       align-items: center;
     }
-    &__button:nth-child(3) {
+    &__button--text-svg {
       h3 {
         position: relative;
         padding-right: 24px;
