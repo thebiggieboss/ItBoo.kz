@@ -1,6 +1,6 @@
 <template>
   <div class="header-component">
-    <div class="header-menu overflow-hidden" ref="header-parent">
+    <div class="header-menu " ref="header-parent">
       <div class="header-menu__container wrapper">
         <nuxt-link to="/" class="flex">
           <h2 class="primary animate__animated" ref="header-text1">It</h2>
@@ -215,6 +215,7 @@ export default {
       gap: 24px;
     }
     &__user {
+      position: relative;
       &--is-active {
         .header-menu__user-info {
           max-height: max-content;
@@ -227,11 +228,12 @@ export default {
       display: none;
       max-height: 0;
       position: absolute;
-      top: 100%;
-      right: 6px;
+      top: calc(100% + 20px);
+      right: 0;
       padding-top: 10px;
       transition-duration: 0.3s;
       &--items {
+        width: 200px;
         background-color: rgba(#fff, 0.99);
         box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
         border-radius: 5px;
