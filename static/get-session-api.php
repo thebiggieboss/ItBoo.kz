@@ -6,7 +6,7 @@ if (isset($_SESSION['id'])) {
     // Сессия активна, возвращаем данные пользователя
     $response = array(
         "status" => true,
-        "message" => "Сессия активна",
+        "message" => "Сессия белсенді емес",
         "user" => array(
             "id" => $_SESSION['id'],
             "email" => $_SESSION['email'],

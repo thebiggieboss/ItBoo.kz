@@ -81,7 +81,7 @@ export default {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-content: center;
-    align-items: end;
+    align-items: flex-end;
     max-height: 400px;
     min-height: 400px;
     gap: 12px;

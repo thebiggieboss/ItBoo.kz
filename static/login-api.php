@@ -7,7 +7,7 @@
 	if ($email == "" || $password_entered == "") {
 		$response = array(
 			"status" => false,
-			"message" => "Email и пароль должны быть заполнены"
+			"message" => "E-mail мен құписясөз толтырылуы міндетті"
 		);
 		header('Content-Type: application/json');
 		echo json_encode($response);
@@ -41,7 +41,7 @@
 
 			$response = array(
 				"status" => true,
-				"message" => "Регистрация успешно",
+				"message" => "Тіркелу сәтті өтті",
 				"user" => array(
             "id" => $_SESSION['id'],
             "email" => $_SESSION['email'],
@@ -57,7 +57,7 @@
 	}
 	$response = array(
 		"status" => false,
-		"message" => "Email или пароль не правильно"
+		"message" => "Қате e-mail не құпиясөз"
 	);
 	header('Content-Type: application/json');
 	echo json_encode($response);

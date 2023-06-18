@@ -1,25 +1,11 @@
 <template>
   <div class="reviews-card-component wrapper">
-    <carousel
-      paginationActiveColor="#2079FF"
-      paginationColor="#C4CDFF"
-      :paginationSize="15"
-      :perPageCustom="[[200, 1],[768, 2], [1144, 3], [1400, 4]]"
-      autoplay
-    >
-      <slide v-for="(item, index) in cardData" :key="index">
-        <div class="reviews-card-component__content">
-          <div class="reviews-card-component__head-text">
-            <img :src="item.icon" alt="" />
-            <div>
-              <h3 class="text-black cursor-pointer pb-2" :title="item.title">{{ item.title }}</h3>
-              <p :title="item.subDes" class="cursor-pointer">{{ item.subDes }}</p>
-            </div>
-          </div>
-          <p class="reviews-card-component__des">{{ item.des }}</p>
-        </div>
-      </slide>
-    </carousel>
+    <img :src="cardData.icon" alt="" class="reviews-card-component__img">
+    <div class="reviews-card-component__head-text">
+      <h3 class="text-[#000000] text-center">{{cardData.title}}</h3>
+      <p class="text-center">{{cardData.subDes}}</p>
+    </div>
+    <p class="reviews-card-component__des">'{{cardData.des}}'</p>
   </div>
 </template>
 
@@ -28,8 +14,8 @@ export default {
   name: 'reviews-card-component',
   props: {
     cardData: {
-      type: Array,
-      default: () => [],
+      type: Object,
+      default: () => ({}),
     },
   },
 }
@@ -37,54 +23,38 @@ export default {
 
 <style scoped lang="scss">
 .reviews-card-component {
-  padding: 32px 0 0 0 ;
-  .reviews-card-component__content {
-    display: grid;
-    gap: 16px;
-    padding-bottom: 20px;
-    justify-content: center;
+  display: grid;
+  height: 100%;
+  justify-items: center;
+  grid-template-rows: auto auto 1fr;
+  gap: 12px;
+  .reviews-card-component__img {
+    width: 100%;
+    max-width: 202px;
+    height: 202px;
+    object-fit: cover;
+    border-radius: 50%;
   }
   .reviews-card-component__head-text {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 12px;
-    align-items: center;
-    h3 {
-      font-size: 16px;
+    border-bottom: 1px solid black;
+    padding: 0 4px 12px 4px;
+  }
+  .reviews-card-component__des {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    font-weight: 400;
+    color: #000000;
+    text-align: center;
+  }
+  @media screen and (max-width: 960px) {
+    .reviews-card-component__img {
+      max-width: 160px;
+      height: 160px;
     }
-    p {
-      color: #8d8d8d;
+    .reviews-card-component__des {
+      max-width: 100%;
       font-size: 12px;
-      max-width: 228px;
-      display: -webkit-box;
-      -webkit-line-clamp: 1;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    img {
-      width: 80px;
-      height: 80px;
-      border-radius: 100%;
-      object-fit: cover;
-    }
-  }
-  &__des {
-    color: #8d8d8d;
-    max-width: 320px;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 7;
-    -webkit-box-orient: vertical;
-  }
-  @media screen and (max-width: 1500px) {
-    padding: 32px 8px 0 8px ;
-  }
-  @media screen and (max-width: 768px) {
-    .VueCarousel {
-      width: 100%;
-      max-width: 300px;
-      margin: 0 auto;
     }
   }
 }

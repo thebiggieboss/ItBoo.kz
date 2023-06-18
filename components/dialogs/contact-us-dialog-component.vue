@@ -1,5 +1,6 @@
 <template>
   <div class="contact-us-dialog">
+    <h3 class="text-center text-[#5a5a5a]">Сұраныс қалдыру</h3>
     <form @submit.prevent="formSubmit" class="contact-us-dialog__form">
       <input
         required
@@ -27,49 +28,52 @@
         name="phone"
         autocomplete="off"
       />
-      <input
-        required
-        v-model="email"
-        type="email"
-        placeholder="Пошта"
-        name="email"
-        autocomplete="off"
-      />
-      <input
-        required
-        v-model="password"
-        type="password"
-        placeholder="Құпия сөзіңіз"
-        name="password"
-        autocomplete="off"
-      />
-      <input
-        v-model="promo"
-        type="text"
-        placeholder="Промо код"
-        name="promo"
-        autocomplete="off"
-      />
-      <v-select
-        v-model="book"
-        :options="listSelects"
-        :reduce="(books) => books.value"
-        label="title"
-        placeholder="Курс"
-        append-to-body
-        class="vue-select__select"
-      >
-        <template #search="{attributes, events}">
-          <input
-            class="vs__search"
-            :required="!book"
-            v-bind="attributes"
-            v-on="events"
-          />
-        </template>
-      </v-select>
+      <div class="contact-us-dialog__columns">
+        <input
+          required
+          v-model="email"
+          type="email"
+          placeholder="Пошта"
+          name="email"
+          autocomplete="off"
+        />
+        <input
+          required
+          v-model="password"
+          type="password"
+          placeholder="Құпия сөзіңіз"
+          name="password"
+          autocomplete="off"
+        />
+      </div>
+      <div class="contact-us-dialog__columns">
+        <input
+          v-model="promo"
+          type="text"
+          placeholder="Промо код"
+          name="promo"
+          autocomplete="off"
+        />
+        <v-select
+          v-model="book"
+          :options="listSelects"
+          :reduce="(books) => books.value"
+          label="title"
+          placeholder="Курс"
+          append-to-body
+          class="vue-select__select"
+        >
+          <template #search="{attributes, events}">
+            <input
+              class="vs__search"
+              :required="!book"
+              v-bind="attributes"
+              v-on="events"
+            />
+          </template>
+        </v-select>
+      </div>
       <div class="contact-us-dialog__network">
-        <img src="/icon/modal-inst.svg" alt="">
         <img src="/icon/modal-telaga.svg" alt="">
         <img src="/icon/modal-whatsapp.svg" alt="">
       </div>
@@ -170,24 +174,29 @@ export default {
 .contact-us-dialog {
   width: 100%;
   max-width: 520px;
-  padding: 64px 24px;
+  padding: 32px 24px;
   margin: 0 auto;
   .contact-us-dialog__form {
     display: grid;
     grid-template-rows: repeat(4, max-content);
-    gap: 24px;
+    gap: 16px;
     margin: 24px 0;
     button {
       border-radius: $border-radius-secondary;
     }
   }
-  .contact-us-dialog__network {
+  .contact-us-dialog__columns {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-items: center;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .contact-us-dialog__network {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
     img {
-      width: 60px;
-      height: 60px;
+      width: 32px;
+      height: 32px;
     }
   }
 }

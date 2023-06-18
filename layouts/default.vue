@@ -5,6 +5,7 @@
       <Nuxt />
     </div>
     <footer-component />
+    <footer-foot-component />
   </div>
 </template>
 
@@ -12,10 +13,11 @@
 import HeaderComponent from "~/components/layouts/header-component.vue";
 import FooterComponent from "~/components/layouts/footer-component.vue";
 import axios from "axios";
+import FooterFootComponent from "~/components/layouts/footer-foot-component.vue";
 
 export default {
   name: "default",
-  components: {FooterComponent, HeaderComponent},
+  components: {FooterFootComponent, FooterComponent, HeaderComponent},
 }
 </script>
 

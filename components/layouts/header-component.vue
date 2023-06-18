@@ -111,7 +111,7 @@
               <hr>
               <div @click="logout" class="header-menu--navigator__user--info">
                 <span class="text-[#FF4242]">
-                  Выйти
+                  Шығу
                 </span>
               </div>
             </div>
@@ -272,7 +272,7 @@ export default {
       width: 34px;
       cursor: pointer;
       &--is-non-active {
-        filter: invert(56%) sepia(78%) saturate(460%) hue-rotate(90deg) brightness(103%) contrast(88%);
+        filter: invert(49%) sepia(94%) saturate(4329%) hue-rotate(204deg) brightness(98%) contrast(106%);
       }
     }
     &__buttons {
@@ -302,8 +302,7 @@ export default {
     }
   }
   .header-menu__mobile {
-    padding-top: 6px;
-    padding-bottom: 6px;
+    padding: 6px 16px;
     display: none;
     align-items: center;
     justify-content: space-between;
@@ -318,6 +317,9 @@ export default {
       .header-icon {
         width: 32px;
         height: auto;
+      }
+      img {
+        margin: auto;
       }
     }
   }

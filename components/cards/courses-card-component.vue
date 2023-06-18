@@ -1,6 +1,6 @@
 <template>
   <div class="courses-card-component">
-    <img :src="cardData.icon" alt="" @click="dialogMain = true">
+    <img :src="cardData.icon" alt="" @click="dialogMain = true" class="courses-card-component__img">
     <div class="courses-card-component__content">
       <img :src="cardData.subDes.icon" alt="">
       <p class="text-black">{{cardData.subDes.title}}</p>
@@ -41,7 +41,16 @@ export default {
 .courses-card-component {
   display: grid;
   gap: 12px;
-  max-width: max-content;
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.9s ease;
+  width: 100%;
+  max-width: 340px;
+  &:hover {
+    background: #FFFFFF;
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+  }
   .courses-card-component__content {
     display: grid;
     grid-template-columns: auto auto 1fr;
@@ -51,6 +60,18 @@ export default {
     img {
       height: 32px;
       width: 32px;
+    }
+  }
+  .courses-card-component__img {
+    width: 100%;
+    max-width: 310px;
+    max-height: 320px;
+    margin: 0 auto;
+  }
+  @media screen and (max-width: 1200px) {
+    max-width: 260px;
+    .courses-card-component__img {
+      max-width: 240px;
     }
   }
 }

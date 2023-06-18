@@ -4,8 +4,8 @@
       <img class="about-book-component__img" src="/images/machine-learn.png" alt="">
       <div class="about-book-component__about">
         <h2 class="text-white">Кітап туралы</h2>
-        <h2 class="text-white pb-4">Машинаны үйрету</h2>
-        <p class="text-white pb-12 text-sm"><img class="about-book-component__img-mobile" src="/images/machine-learn.png" alt="">
+        <h3 class="text-white pb-4 font-normal">Машинаны үйрету</h3>
+        <p class="text-white pb-12 text-sm font-light"><img class="about-book-component__img-mobile" src="/images/machine-learn.png" alt="">
           Бұл кiтаптың басты мақсаты — машинаны үйрету саласын оқырмандарға таныстыра келіп нөлдiк деңгейден халықаралық дәрежедегi Junior Machine Learning Engineer деңгейiне дейiнгі бiлiм беруді іске асыру. Өз тарапымыздан Junior Machine Learning Engineer деңгейін көздейтін тақырыптарды қарастырып, оларға толықтай түсінік беруге тырыстық. Әр тақырыптағы өз бiлiмдерiңiздi тексеру үшiн тест сұрақтар мен жаттығулар берiп отырдық. Сол сұрақтардың кiтап соңындағы жауабын қарап, өз бiлiмдерiңiздi тексере аласыздар. Сонымен бірге, әр тақырып үшiн Python тiлiнде код жазылып, сол тақырыпты теориялық түрде түсiнiп қана қоймай, сол кодты бiзбен бiрге жазып, практикалық тұрғыдан бiлiмдерiңiздi арттыра алуға қолайлы жағдай жасадық. Кiтаптағы әр бөлiмдi оқып болғаннан кейiн сол тақырыпқа байланысты есептер шығара аласыздар. Автоматтандырылған тексеру жүйесi сiздiң кодыңызды тестiлеу арқылы дұрыс не бұрыс екенiн анықтап бере алады.</p>
         <div class="about-book-component__buttons">
           <button
@@ -15,7 +15,7 @@
           >
             Кітапты сатып алу
           </button>
-          <a href="/doc/short_version.pdf" target="_blank" style="color: #D9D9D9">Кітаптың қысқа нұсқасын оқу</a>
+          <a href="/doc/short_version.pdf" target="_blank" style="color: #D9D9D9" class="font-light">Кітаптың қысқа нұсқасын оқу</a>
         </div>
       </div>
     </div>

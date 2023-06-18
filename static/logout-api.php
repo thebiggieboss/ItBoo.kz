@@ -9,7 +9,7 @@ if (isset($_SESSION['id'])) {
 
     $response = array(
         "status" => true,
-        "message" => "Выход из системы выполнен успешно"
+        "message" => "Жүйеден шығу сәтті өтті"
     );
 } else {
     $response = array(

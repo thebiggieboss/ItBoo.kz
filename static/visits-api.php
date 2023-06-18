@@ -15,9 +15,9 @@ $sql = "INSERT INTO visits (page_id, date_visited, time_visited, user_level)
         VALUES (1000, '" . date("Y.m.d") . "', '" . date("H:i:s") . "', 0)";
 
 if ($conn->query($sql) === TRUE) {
-    echo json_encode(["message" => "Запись о посещении отправлена на сервер"]);
+    echo json_encode(["message" => "Кіру туралы жазба серверге жіберілді"]);
 } else {
-    echo json_encode(["message" => "Ошибка при добавлении записи: " . $conn->error]);
+    echo json_encode(["message" => "Кіру туралы жазба серверге жіберілмеді: " . $conn->error]);
 }
 
 $conn->close();

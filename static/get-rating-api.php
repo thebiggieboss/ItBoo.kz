@@ -41,13 +41,13 @@ try {
 
         $response = array(
             "status" => "true",
-            "message" => "Данные получены",
+            "message" => "Деректер қабылданды",
             "users" => $data
         );
     } else {
         $response = array(
             "status" => "false",
-            "message" => "Нет данных о пользователях"
+            "message" => "Пайдаланушы бойынша мәлімет жоқ"
         );
     }
 

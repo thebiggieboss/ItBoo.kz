@@ -208,7 +208,7 @@ export default {
   }
   &__upload {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
   }
   @media screen and (max-width: 768px) {
     &__container {

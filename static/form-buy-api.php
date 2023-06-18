@@ -24,7 +24,7 @@ if ($conn->connect_error) {
 // Проверка наличия обязательных полей
 if ($fname === '' || $lname === '' || $email === '' || $password_entered === '') {
     $response = array(
-        "message" => "Не заполнены обязательные поля",
+        "message" => "Міндетті орындар толтырылмады",
         "success" => false
     );
     echo json_encode($response);
@@ -34,7 +34,7 @@ if ($fname === '' || $lname === '' || $email === '' || $password_entered === '')
 // Валидация полей, например, проверка правильности email
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $response = array(
-        "message" => "Некорректный email",
+        "message" => "E-mail қате",
         "success" => false
     );
     echo json_encode($response);
@@ -62,7 +62,7 @@ if ($conn->query($sql) === TRUE) {
         exit;
 } else {
     $response = array(
-        "message" => "Ошибка при обработке запроса: " . $conn->error,
+        "message" => "Серверде қателік пайда болды: " . $conn->error,
         "success" => false
     );
     echo json_encode($response);

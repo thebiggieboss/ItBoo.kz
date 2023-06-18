@@ -17,7 +17,7 @@
 	if ($password_entered !== $confirm_password) {
 		$response = array(
 			"status" => false,
-			"message" => "Пароли не совпадают"
+			"message" => "Құпиясөздер сәйкес емес"
 		);
 		header('Content-Type: application/json');
 		echo json_encode($response);
@@ -38,7 +38,7 @@
 	if ($result->num_rows > 0) {
 		$response = array(
 			"status" => false,
-			"message" => "Email уже зарегистрирован"
+			"message" => "E-mail тіркелген"
 		);
 		header('Content-Type: application/json');
 		echo json_encode($response);
@@ -73,7 +73,7 @@
 
 			$response = array(
 				"status" => true,
-				"message" => "Регистрация прошла успешно",
+				"message" => "Тіркелу сәтті өтті",
 				"user" => $userData
 			);
 			header('Content-Type: application/json');
@@ -83,7 +83,7 @@
 	} else {
 		$response = array(
 			"status" => false,
-			"message" => "Ошибка при регистрации"
+			"message" => "Тіркелу кезінде қате пайда болды"
 		);
 		header('Content-Type: application/json');
 		echo json_encode($response);

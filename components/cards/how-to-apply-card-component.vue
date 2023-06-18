@@ -39,7 +39,7 @@ export default {
     align-items: center;
   }
   &__img {
-    align-self: end;
+    align-self: flex-end;
     padding-bottom: 16px;
   }
   &:last-child {

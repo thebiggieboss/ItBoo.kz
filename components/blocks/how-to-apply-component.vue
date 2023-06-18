@@ -98,7 +98,7 @@ export default {
       padding: 0;
       grid-template-columns: 1fr 1fr;
       button:last-child {
-        justify-self: end;
+        justify-self: flex-end;
       }
     }
 

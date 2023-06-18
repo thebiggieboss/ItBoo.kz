@@ -1,15 +1,15 @@
 <template>
   <div class="reviews-component pb-16 pt-16">
-    <div class="reviews-component__head-text wrapper">
-      <h2 class="text-black pb-2">Пікірлер</h2>
-      <h3 class="pb-12">Біз туралы адамдар не ойлайды</h3>
+    <div class="reviews-component__content  wrapper">
+      <h2 class="text-black pb-6">Біздерді кім қолдайды</h2>
+      <div class="reviews-component__blocks">
+        <reviews-card-component
+          v-for="(item, index) in reviewData"
+          :key="index"
+          :card-data="item"
+        />
+      </div>
     </div>
-    <div class="reviews-component__content">
-      <client-only>
-        <reviews-card-component :card-data="reviewData"/>
-      </client-only>
-    </div>
-    <img src="/icon/review-icon.svg" alt="">
   </div>
 </template>
 
@@ -24,7 +24,7 @@ export default {
       reviewData: [
         {
           title: 'Бағдат Батырбекұлы Мусин',
-          subDes: 'Мемлекеттік қайраткер, ҚР министрі. fwafwfasfsafsafa',
+          subDes: 'Мемлекеттік қайраткер, ҚР министрі.',
           des: "Digital Nomads мүшесі – Мағжан Қайранбай есімді отандасымыз қазақ тілінде «Машинаны үйрету» атты кітабын жарыққа шығарды. Машинаны үйрету/Machine Learning – 20 ғасырда пайда болған ғылым саласы. Оның басты мәні IT саласындағы ілімдерді деректер арқылы компьютерге енгізу және толықтырып отыру. Автордың қазақ тіліндегі оқу құралында машинаны үйретудегі бағдарламалау, инженерлік бағыттағы ақпараттар шоғырланған. Теориялық және практикалық сұрақтар мен жаттығулар берiлген. Бұл оқу құралы машинаны үйрету саласына жаңадан аяқ басқан оқушы, студент немесе осы бағытта жұмыс iстеймiн деген азаматтарға таптырмас дүние. Шыныменде, Ағылшын және орыс тiлдерiнде машинаны үйрету саласы бойынша ақпараттар өте көп болғанымен, қазақ тiлiнде кемде-кем. Мағжанның бұл туындысы – қазақ аудиториясы үшін өте құнды оқулық. Шетелдің алпауыт компаниясында қызмет етіп жүрсе де, еліне қол ұшын созып жатқан Мағжанға өз ризашығымды білдіремін.",
           icon: 'https://tengrinews.kz/userdata/news/2021/news_427333/thumb_m/photo_350158.jpeg'
         },
@@ -42,19 +42,15 @@ export default {
 
 <style scoped lang="scss">
 .reviews-component {
-  position: relative;
-  height: 720px;
-  img {
-    position: absolute;
-    right: 0;
-    bottom: 0;
+  .reviews-component__blocks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    gap: 24px;
   }
-  .reviews-component__content {
-    background-color: #E8ECFF;
-  }
-  @media screen and (max-width: 768px) {
-    img {
-      width: 160px;
+  @media screen and (max-width: 960px) {
+    .reviews-component__blocks {
+      grid-template-columns: 1fr;
     }
   }
 }
